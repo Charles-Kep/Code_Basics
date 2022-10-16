@@ -1,7 +1,47 @@
-<html>
-    <body>
-        <div>
-            <p>hello world</p>
-        </div>
-    </body>
+<!DOCTYPE html>
+<html lang="eng">
+  <header>
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="styles.css">
+  </header>
+  <body>
+    <h1 id="title">Game Survey Form</h1>
+    <p id="description">Please fill out this form </p>
+    <form id="survey-form">
+      <fieldset>
+        <label for="name" id="name-label">Enter Your Full name: <input id="name" name="name" type="text" placeholder="John Smith" required /></label>
+        <label for="email" id="email-label">Enter Your Email: <input id="email" name="email" type="email" placeholder="jsmith@gmail.com" required /></label>
+         <label for="male"><input id="male" type="radio" name="gender" class="inline" value="male"/> Male</label>
+        <label for="female"><input id="female" type="radio" name="gender" class="inline" value="female"/> Female</label>
+         <label for="other"><input id="other" type="radio" name="gender" class="inline" value="other"/> Other</label>
+         <label for="number" id="number-label">Input your age (years): <input id="number" type="number" name="age" min="13" max="120" placeholder= "13"/></label>
+        </label>
+      </fieldset>
+      <fieldset>
+        <label for="dropdown">Average play time per day
+          <select id="dropdown" name="time-played">
+            <option value="">(select one)</option>
+            <option value="1">0-1 Hour(s)</option>
+            <option value="2">1-3 Hour(s)</option>
+            <option value="3">3-5 Hour(s)</option>
+            <option value="4">>5 Hour(s)</option>
+            <option value="5">Other</option>
+          </select>
+        </label>
+        <label for="genre" >Please check your favorite game genre(s): </label>
+          <label><input type="checkbox" id="genre" name="Fighting" value="Fighting" class="inline">Fighting</label>
+          <label><input type="checkbox" id="genre" name="RPG" value="RPG" class="inline">RPG</label>
+          <label><input type="checkbox" id="genre" name="Racing" value="Racing" class="inline">Racing</label>
+          <label><input type="checkbox" id="genre" name="Platformer" value="Platformer" class="inline">Platformer</label>
+          <label><input type="checkbox" id="genre" name="Shooter" value="Shooter" class="inline">Shooter</label>
+          <label><input type="checkbox" id="genre" name="Survival" value="Survival" class="inline">Survival</label>
+          <label><input type="checkbox" id="genre" name="Rhythm" value="Rhythm" class="inline">Rhythm</label>
+          <label><input type="checkbox" id="genre" name="Other" value="Other" class="inline">Other</label>
+        </label>
+        <label for="favorite-game">Favorite game and why:
+          <textarea id="favorite-game" name="favorite game" rows="3" cols="30" placeholder="My favorite game is...."></textarea>
+      </fieldset>
+      <input id="submit" type="submit" value="Submit" />
+    </form>
+  </body>
 </html>
