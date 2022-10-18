@@ -1,0 +1,9 @@
+function palindrome(str) {
+  let cleanString = str.toLowerCase().replace(/[\W_]/g, "");//Cleans all non-alphanumarical and _ from the inputed string
+  let reverseString = cleanString.split("").reverse().join(""); // flips the string 
+  if(cleanString === reverseString){ //checks if the foward and reverse string match exactly
+    return true; //Is a palnendrome
+  }else {
+    return false;//Is not
+  }
+}

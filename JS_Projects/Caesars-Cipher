@@ -1,0 +1,13 @@
+function rot13(str) {
+  const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]; //an array of alphabet to check and modify passed string
+  let convertedString = ""; //placeholder to hold the conversion
+  for(let i = 0; i < str.length ; i++){ //loop through passed string
+    if(!alphabet.includes(str[i])){ //checks if the current item passed is in the alphabet otherwise adds as is(all non-capatilized characters)
+      convertedString += str[i];
+    }else{
+      let index = alphabet.findIndex((c) => c === str[i]); //a nested funcition to find the value of index in alphabet array(ex. A index is 0)
+      convertedString += alphabet[index +13] || alphabet[index - 13]; // adds the swapped character 13 places, a conditional to ensure if the index would exceed 25(total length of array) it will instead subtract 13 
+    }
+  }
+  return convertedString; //return completed string
+}

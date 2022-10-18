@@ -1,0 +1,26 @@
+function convertToRoman(num) {
+  const tableLookup = { //Table containing roman numerals and number value 
+    M : 1000,
+    CM :900,
+    D : 500,
+    CD : 400,
+    C : 100,
+    XC : 90,
+    L : 50,
+    XL : 40,
+    X : 10,
+    IX : 9,
+    V : 5,
+    IV : 4,
+    I : 1
+  };
+  let romanNum = ""; //Empty string to be filled with roman numerals 
+  for(let key in tableLookup){ //goes through each key in the tableLookup
+    let value = tableLookup[key]; //pulls the number value from the table based on the key
+    while (value <= num){ //compairing value pulled from tableLookup and the number passed
+      num -= value; //removes value from number passed
+      romanNum += key; // adds the key(string associated with roman numeral) to the total value for given number
+    }
+  }
+  return romanNum; //returns the completed string
+}

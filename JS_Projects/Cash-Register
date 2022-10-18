@@ -1,0 +1,43 @@
+function checkCashRegister(price, cash, cid) {
+    let change = cash*100 - price*100; //Getting value of change(converting to penny value to mange not having floats)
+    let cashInDrawerTotal = 0; 
+    for(let value of cid){ //finding total amount in register
+      cashInDrawerTotal += value[1]*100;
+    }
+    if(change > cashInDrawerTotal){ //if the total amount of change exceeds total amount in register
+      return {status: "INSUFFICIENT_FUNDS", change: []};
+    } 
+    else if(change === cashInDrawerTotal){ //if it is exactly equal 
+      return {status: "CLOSED", change: cid}
+    }else{  //Requires check to see if you can match exact change or not
+      cid = cid.reverse();
+      let moneyCheck = { //used to compare with value in drawer
+        "ONE HUNDRED": 10000, 
+        "TWENTY" : 2000, 
+        "TEN" : 1000, 
+        "FIVE" : 500, 
+        "ONE" : 100, 
+        "QUARTER" : 25, 
+        "DIME": 10, 
+        "NICKEL" : 5,
+        "PENNY" : 1};
+        let finalOut = [];// empty array for the final total out
+        for(let check of cid) { //increment through cid
+          let holder = [check[0], 0]
+          
+          check[1] = check[1]*100;
+          while(change >= moneyCheck[check[0]] && check[1] > 0){
+            change -= moneyCheck[check[0]];
+            check[1] -= moneyCheck[check[0]];
+            holder[1] += moneyCheck[check[0]]/100; 
+          }
+          if(holder[1] > 0){
+            finalOut.push(holder);
+          }
+        }
+        if(change > 0){
+          return {status: "INSUFFICIENT_FUNDS", change: []};
+        }
+        return {status: "OPEN", change: finalOut};
+    }
+  }
